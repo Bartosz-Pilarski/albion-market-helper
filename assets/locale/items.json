@@ -1,0 +1,58 @@
+{
+    "T2_ORE": {
+        "title": "Tier II Ore",
+        "subtitle": "Copper Ore"
+    },
+    "T3_ORE": {
+        "title": "Tier III Ore",
+        "subtitle": "Tin Ore"
+    },
+    "T4_ORE": {
+        "title": "Tier IV Ore",
+        "subtitle": "Iron Ore"
+    },
+    "T5_ORE": {
+        "title": "Tier V Ore",
+        "subtitle": "Titanium Ore"
+    },
+    "T6_ORE": {
+        "title": "Tier VI Ore",
+        "subtitle": "Runite Ore"
+    },
+    "T7_ORE": {
+        "title": "Tier VII Ore",
+        "subtitle": "Meterorite Ore"
+    },
+    "T8_ORE": {
+        "title": "Tier VIII Ore",
+        "subtitle": "Adamantium Ore"
+    },
+    "T2_METALBAR": {
+        "title": "Tier II Bar",
+        "subtitle": "Copper Bar"
+    },
+    "T3_METALBAR": {
+        "title": "Tier III Bar",
+        "subtitle": "Bronze Bar"
+    },
+    "T4_METALBAR": {
+        "title": "Tier IV Bar",
+        "subtitle": "Steel Bar"
+    },
+    "T5_METALBAR": {
+        "title": "Tier V Bar",
+        "subtitle": "Titanium Steel Bar"
+    },
+    "T6_METALBAR": {
+        "title": "Tier VI Bar",
+        "subtitle": "Runite Steel Bar"
+    },
+    "T7_METALBAR": {
+        "title": "Tier VII Bar",
+        "subtitle": "Meterorite Steel Bar"
+    },
+    "T8_METALBAR": {
+        "title": "Tier VIII Bar",
+        "subtitle": "Adamantium Steel Bar"
+    }
+}

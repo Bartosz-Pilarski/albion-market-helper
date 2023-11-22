@@ -1,0 +1,31 @@
+$martlockOuter: #406992;
+$martlockInner: #ECBB88;
+$bridgewatchOuter: #D86E27;
+$bridgewatchInner: #ffd768;
+$lymhurstOuter: #3c5218; 
+$lymhurstInner: #a3ca47;
+$fortsterlingOuter: #D0CFC4;
+$fortsterlingInner: #4a5155;
+$thetfordOuter: #4C2B51;
+$thetfordInner: #db83af;
+$caerleonOuter: #1F120C;
+$caerleonInner: #af3a40;
+
+$albionRed: #83211f;
+$albionWhite: #FFFFFF;
+$albionBlack: #291f1f;
+
+
+.divider {
+    border-left: 2px solid rgba($albionRed, 0.8);
+    margin: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.divider-horizontal {
+    border-bottom: 2px solid rgba($albionRed, 0.8);
+    margin: 1rem 0.5rem 1rem 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}

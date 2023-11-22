@@ -1,0 +1,51 @@
+@import "./style.scss";
+
+main {
+    margin: 5rem auto;
+    a {
+        text-decoration: none;
+        color: $albionWhite;
+        &:hover {
+            li {
+                background-color: mix($albionBlack, $albionRed, 75%);
+            }
+        }
+    }
+    ul {
+        list-style-type: none;
+        li {
+            display: flex;
+            flex-direction: row;
+            font-size: 2rem;
+            line-height: 5.5rem;
+            width: 20rem;
+            justify-content: center;
+            span {
+                width: 6rem;
+            }
+            img {
+                height: 6rem;
+            }
+        }
+    }
+}
+
+#main-body {
+    padding: 0 2rem 0 2rem;
+    font-size: 1.5rem;
+    position: relative;
+    #footer {
+        font-size: 0.75rem;
+        color: rgba($albionWhite, 0.75);
+        position: absolute;
+        bottom: 0px;
+    }
+    a {
+        color: $albionRed;
+    }
+}
+
+#categories {
+    display: flex;
+    flex-direction: column;
+}

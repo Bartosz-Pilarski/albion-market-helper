@@ -1,0 +1,36 @@
+{
+    "T2_METAL": {
+        "NUTRITION": 1.8,
+        "INGREDIENT_1": ["T2_ORE", 1]
+    },
+    "T3_METAL": {
+        "NUTRITION": 0.9,
+        "INGREDIENT_1": ["T3_ORE", 2],
+        "INGREDIENT_2": ["T2_METALBAR", 1]
+    },
+    "T4_METAL": {
+        "NUTRITION": 1.8,
+        "INGREDIENT_1": ["T4_ORE", 2],
+        "INGREDIENT_2": ["T3_METALBAR", 1]
+    },
+    "T5_METAL": {
+        "NUTRITION": 3.6,
+        "INGREDIENT_1": ["T5_ORE", 3],
+        "INGREDIENT_2": ["T4_METALBAR", 1]
+    },
+    "T6_METAL": {
+        "NUTRITION": 7.2,
+        "INGREDIENT_1": ["T6_ORE", 4],
+        "INGREDIENT_2": ["T5_METALBAR", 1]
+    },
+    "T7_METAL": {
+        "NUTRITION": 14.4,
+        "INGREDIENT_1": ["T7_ORE", 5],
+        "INGREDIENT_2": ["T6_METALBAR", 1]
+    },
+    "T8_METAL": {
+        "NUTRITION": 28.8,
+        "INGREDIENT_1": ["T8_ORE", 5],
+        "INGREDIENT_2": ["T7_METALBAR", 1]
+    }
+}
