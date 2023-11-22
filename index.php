@@ -8,7 +8,7 @@
 </head>
 <body>
     <header><a href="index.php"><h1>Albion.market</h1></a> <span>Economy utility for Albion Online</span></header>
-    <nav><a href="refine.php?type=METAL">Metal</a> <div class="divider"></div><a href="refine.php?type=FIBER">Cloth</a> <div class="divider"></div><a href="refine.php?type=PLANK">Wood</a> <div class="divider"></div><a href="refine.php?type=LEATHER">Leather</a> <div class="divider"></div><a href="refine.php?type=BLOCK">Stone</a></nav>
+    <nav><a href="refine.php?type=METAL">Metal</a> <div class="divider"></div><a href="refine.php?type=FIBER">Cloth</a> <div class="divider"></div><a href="refine.php?type=WOOD">Wood</a> <div class="divider"></div><a href="refine.php?type=LEATHER">Leather</a> <div class="divider"></div><a href="refine.php?type=BLOCK">Stone</a></nav>
     <main>
         <div id="main-body">
             <h1>Welcome to the Albion Market Helper!</h1>
@@ -50,7 +50,7 @@
                 </a>
                 <a href="refine.php?type=WOOD">
                     <li>
-                        <img src="assets/images/T4_PLANK.png" alt="a plank of wood">
+                        <img src="assets/images/T4_PLANKS.png" alt="a plank of wood">
                         <div class="divider"></div>
                         <span><b>Wood</b></span>
                     </li>
@@ -64,7 +64,7 @@
                 </a>
                 <a href="refine.php?type=STONE">
                     <li>
-                        <img src="assets/images/T4_BLOCK.png" alt="a block of stone">
+                        <img src="assets/images/T4_STONEBLOCK.png" alt="a block of stone">
                         <div class="divider"></div>
                         <span><b>Stone</b></span>
                     </li>

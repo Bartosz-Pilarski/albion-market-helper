@@ -18,7 +18,7 @@
 <body>
     <span style="display: none;" id="type"><?php echo $type; ?></span>
     <header><a href="index.php"><h1>Albion.market</h1></a> <span>Economy utility for Albion Online</span></header>
-    <nav><a href="refine.php?type=METAL">Metal</a> <div class="divider"></div><a href="refine.php?type=FIBER">Cloth</a> <div class="divider"></div><a href="refine.php?type=PLANK">Wood</a> <div class="divider"></div><a href="refine.php?type=LEATHER">Leather</a> <div class="divider"></div><a href="refine.php?type=BLOCK">Stone</a></nav>
+    <nav><a href="refine.php?type=METAL">Metal</a> <div class="divider"></div><a href="refine.php?type=FIBER">Cloth</a> <div class="divider"></div><a href="refine.php?type=WOOD">Wood</a> <div class="divider"></div><a href="refine.php?type=LEATHER">Leather</a> <div class="divider"></div><a href="refine.php?type=STONE">Stone</a></nav>
     <div id="main-container">
         <div id="tabs">
             <div id="material-indicator"><?php echo $type ?></div>
