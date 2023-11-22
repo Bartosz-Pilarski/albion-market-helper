@@ -27,6 +27,13 @@
         return strtotime($result[0]["timestamp"]);
     }
 
+    /**
+     * Updates price data in the database using predownloaded data from the Albion Online Data Project
+     * In case of a missing price (0), retains previous price
+     * @param mysqli $db database connection
+     * @param string $itemName Item name to look up, structured as TX_$type, where X is a number between 2-8
+     * @param array $priceData Associative array containing the item's price data
+     */
     function updatePrices(mysqli $db, string $itemName, array $priceData) {
         $currentPrices = getItemPricesByName($db, $itemName, false);
 
@@ -127,6 +134,13 @@
         $stmt->close();
     }
 
+    /**
+     * Takes an associative array formed from a JSON and splits it into smaller arrays sorted by a given field's name
+     * @param array $json associative array from a decoded JSON file
+     * @param string $fieldName name of the field to split $json by
+     * 
+     * @return array the processed array
+     */
     function splitJsonByField(array $json, string $fieldName) {
         $current = $json[0][$fieldName];
         $output = [$current => []];
@@ -158,6 +172,7 @@
 
             $stmt->execute();
             $results = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+            $stmt->close();
 
             $query = "";
             foreach ($results as $key) {
@@ -219,23 +234,6 @@
 
         return $results[0];
     }
-
-        // $name = "T8_METALBAR";
-
-        // $data = json_decode(JSONfromAOData($name),true);
-        
-        // $priceCL = $data[1]["sell_price_min"];
-        // $priceBW = $data[0]["sell_price_min"];
-        // $priceLH = $data[3]["sell_price_min"];
-        // $priceFS = $data[2]["sell_price_min"];
-        // $priceTF = $data[5]["sell_price_min"];
-        // $priceML = $data[4]["sell_price_min"];
-
-        // $type = "METALBAR";
-
-        // $stmt = $mysqli->prepare("INSERT INTO `items`(name,type,price_CL,price_BW,price_LH,price_FS,price_TF,price_ML,timestamp) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())");
-        // $stmt->bind_param("ssiiiiii", $name, $type, $priceCL, $priceBW, $priceLH, $priceFS, $priceTF, $priceML);
-        // $stmt->execute(); 
 
     return $mysqli;
 ?>

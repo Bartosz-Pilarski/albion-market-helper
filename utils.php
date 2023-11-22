@@ -47,6 +47,26 @@
                     "RAW" => "ORE",
                     "REFINED" => "METALBAR"
                 ];
+            case 'FIBER':
+                return [
+                    "RAW" => "FIBER",
+                    "REFINED" => "CLOTH"
+                ];
+            case 'WOOD':
+                return [
+                    "RAW" => "WOOD",
+                    "REFINED" => "PLANKS"
+                ];
+            case 'LEATHER':
+                return [
+                    "RAW" => "HIDE",
+                    "REFINED" => "LEATHER"
+                ];
+            case 'STONE':
+                return [
+                    "RAW" => "ROCK",
+                    "REFINED" => "STONEBLOCK"
+                ];
             default:
                 return "UNKNOWN";
         }
