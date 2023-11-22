@@ -5,9 +5,6 @@
 
         $type = $_GET["type"];
 
-        $allMetals = getItemsByType($mysqli, $type);
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +17,7 @@
 </head>
 <body>
     <span style="display: none;" id="type"><?php echo $type; ?></span>
-    <header><h1>Albion.market</h1> <span>Economy utility for Albion Online</span></header>
+    <header><a href="index.php"><h1>Albion.market</h1></a> <span>Economy utility for Albion Online</span></header>
     <nav></nav>
     <div id="main-container">
         <div id="tabs">
@@ -36,6 +33,7 @@
         </div>
         <main>
             <?php 
+                $allMetals = getItemsByType($mysqli, $type);
                 for ($i=2; $i < 9; $i++) { 
                     echo "<div class='refining-tier tier$i hidden'>";
                         displayResourceTier($i, $type, $allMetals);

@@ -7,8 +7,8 @@
     <title>Albion Market Helper</title>
 </head>
 <body>
-    <header><h1>Albion.market</h1> <span>Economy utility for Albion Online</span></header>
-    <nav></nav>
+    <header><a href="index.php"><h1>Albion.market</h1></a> <span>Economy utility for Albion Online</span></header>
+    <nav><a href="refine.php?type=METAL">Metal</a> <div class="divider"></div><a href="refine.php?type=FIBER">Cloth</a> <div class="divider"></div><a href="refine.php?type=PLANK">Wood</a> <div class="divider"></div><a href="refine.php?type=LEATHER">Leather</a> <div class="divider"></div><a href="refine.php?type=BLOCK">Stone</a></nav>
     <main>
         <div id="main-body">
             <h1>Welcome to the Albion Market Helper!</h1>

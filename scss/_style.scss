@@ -1,4 +1,4 @@
-@import "./util.scss";
+@import "./_util.scss";
 
 * {
     box-sizing: border-box;
@@ -24,6 +24,10 @@ header {
     span {
         font-size: 1.5rem;
     }
+    a {
+        text-decoration: none;
+        color: $albionWhite;
+    }
     height: 3rem;
     background-color: $albionRed;
     color: $albionWhite;
@@ -32,6 +36,15 @@ header {
 nav {
     background-color: $albionBlack;
     height: 2rem;
+    display: flex;
+    flex-direction: row;
+    padding-left: 2rem;
+    a {
+        text-decoration: none;
+        font-weight: bold;
+        color: $albionWhite;
+        line-height: 1.75rem;
+    }
 }
 
 main {
