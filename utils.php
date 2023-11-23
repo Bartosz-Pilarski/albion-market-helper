@@ -174,7 +174,7 @@
                             <div class="lowest {$minIngredient1City}"> {$minIngredient1} </div>
                         </div>
                         <div class="reagent-amount">
-                            <h1> x{$ingredient1[1]} </h1>
+                            <h1>x{$ingredient1[1]}</h1>
                         </div>
                     </div>
         END;
@@ -189,7 +189,7 @@
                             <div class="lowest {$minIngredient2City}"> {$minIngredient2} </div>
                         </div>
                         <div class="reagent-amount">
-                            <h1> x{$ingredient2[1]} </h1>
+                            <h1>x{$ingredient2[1]}</h1>
                         </div>
                     </div>
                 </div>

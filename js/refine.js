@@ -7,7 +7,7 @@ var activeTier = 4;
 //For the refining calculator
 const rawInputBox = document.querySelector("#rawInput");
 const refinedOutputBox = document.querySelector("#refinedOutput");
-var nutritionCost;
+var refiningNutritionCost, highestRefined;
 //Will store ingredients as array ingredient [COST, AMOUNT]
 var ingredients = [];
 
@@ -26,6 +26,14 @@ for (let index = 0; index < tabButtons.length; index++) {
         activeTier = tabTier;
         tabButtons[index].classList.add("tab-active");
         let nowActive = document.querySelector(`.tier${activeTier}`);
+        ingredients = [];
+        let reagents = nowActive.querySelectorAll(".crafting-reagent");
+        for (let index = 0; index < reagents.length; index++) {
+            ingredients.push([reagents[index].querySelector(".lowest").innerText]);
+            ingredients[index].push(reagents[index].querySelector(".reagent-amount").querySelector("h1").innerText.substring(1));
+        }
+        refiningNutritionCost = nowActive.querySelector(".crafting-cost").innerText*1;
+        calculateRefiningFromRaw(rawInputBox.value);
         nowActive.classList.remove("hidden");
     })
 }
@@ -37,13 +45,15 @@ for (let index = 0; index < tabButtons.length; index++) {
 for (let index = 0; index < nutritionInputParents.length; index++) {
     let inputBox = nutritionInputParents[index].children[0].children[0];
     let costBox = nutritionInputParents[index].children[1].children[0];
-    nutritionCost = nutritionInputParents[index].parentElement.querySelector(".nutrition-cost").querySelector("span").innerText*1;
+    let nutritionCost = nutritionInputParents[index].parentElement.querySelector(".nutrition-cost").querySelector("span").innerText*1;
     inputBox.addEventListener("input", () => {
         if(inputBox.value.length > 4) inputBox.value = inputBox.value.substring(0, 4)*1;
         if(inputBox.value < 1) inputBox.value = 1;
         let costPerNutritionUnit = inputBox.value/100;
-        nutritionCost = Math.round(`${nutritionCost*costPerNutritionUnit}`*10)/10;
-        costBox.innerText = nutritionCost;
+        console.log(nutritionCost);
+        refiningNutritionCost = Math.round(nutritionCost*costPerNutritionUnit);
+        costBox.innerText = refiningNutritionCost;
+        calculateRefiningFromRaw(rawInputBox.value);
         });
 }
 
@@ -56,14 +66,46 @@ function calculateRefiningFromRaw(amount) {
 
     let rawCost = ingredients[0][0]*amount;
     let reagentCost = ingredients[1][0]*roundedReagentsNeeded;
-    let totalCost = rawCost+reagentCost;
 
     let craftingOutput = Math.floor(amount/ingredients[0][1]);
+    let craftingNutritionCost = refiningNutritionCost*craftingOutput;
+
+    let totalCost = rawCost+reagentCost+craftingNutritionCost;
+    refinedOutputBox.value = craftingOutput;
     
     output += `Raw: ${ingredients[0][0]}x${amount} `;
     if(typeof ingredients[1] !== undefined) {
         output += `Reagent: ${ingredients[1][0]}x${roundedReagentsNeeded} `;
     }
+    output += `Station nutrition cost: ${craftingNutritionCost} `;
+    output += `Total initial investment: ${totalCost} `;
+    output += `Refined Output: ${craftingOutput}`;
+
+    
+    logBox.innerText = output;
+}
+
+function calculateRefiningFromRefined(amount) {
+    let output = "";
+    logBox.innerText = "";
+    
+    let roundedReagentsNeeded = amount*ingredients[1][1];
+    let roundedRawNeeded = amount*ingredients[0][1];
+
+    let rawCost = roundedRawNeeded*ingredients[0][0];
+    let reagentCost = roundedReagentsNeeded*ingredients[1][0];
+
+    let craftingOutput = amount
+    let craftingNutritionCost = refiningNutritionCost*craftingOutput;
+
+    let totalCost = rawCost+reagentCost+craftingNutritionCost;
+    rawInputBox.value = roundedRawNeeded;
+    
+    output += `Raw: ${ingredients[0][0]}x${amount} `;
+    if(typeof ingredients[1] !== undefined) {
+        output += `Reagent: ${ingredients[1][0]}x${roundedReagentsNeeded} `;
+    }
+    output += `Station nutrition cost: ${craftingNutritionCost} `;
     output += `Total initial investment: ${totalCost} `;
     output += `Refined Output: ${craftingOutput}`;
 
@@ -83,16 +125,19 @@ window.addEventListener("load", () => {
     let reagents = initiallyActive.querySelectorAll(".crafting-reagent");
     for (let index = 0; index < reagents.length; index++) {
         ingredients.push([reagents[index].querySelector(".lowest").innerText]);
-        ingredients[index].push(reagents[index].querySelector(".reagent-amount").querySelector("h1").innerText.substring(1))
-        
-        logBox.innerText += " "+ingredients[index][0]+"x"+ingredients[index][1];
+        ingredients[index].push(reagents[index].querySelector(".reagent-amount").querySelector("h1").innerText.substring(1));
     }
-    nutritionCost = initiallyActive.querySelector(".crafting-cost").innerText*1
-    logBox.innerText += " "+nutritionCost;
+    refiningNutritionCost = initiallyActive.querySelector(".crafting-cost").innerText*1;
+    calculateRefiningFromRaw(ingredients[0][1]);
+    rawInputBox.value = ingredients[0][1];
 
     //set up user input for the refining calculator
     rawInputBox.addEventListener("input", () => {
         if(rawInputBox.value < 1) rawInputBox.value = 1;
         calculateRefiningFromRaw(rawInputBox.value);
+    })
+    refinedOutputBox.addEventListener("input", () => {
+        if(refinedOutputBox.value < 1) refinedOutputBox.value = 1;
+        calculateRefiningFromRefined(refinedOutputBox.value);
     })
 });
