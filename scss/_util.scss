@@ -15,6 +15,8 @@ $albionRed: #83211f;
 $albionWhite: #FFFFFF;
 $albionBlack: #291f1f;
 
+$silverInner: #747E7A;
+$silverOuter: #D0CECC;
 
 .divider {
     border-left: 2px solid rgba($albionRed, 0.8);
@@ -28,4 +30,29 @@ $albionBlack: #291f1f;
 
 .hidden {
     display: none !important;
+}
+
+$silverDiameter: 2rem;
+$silverPadding: 0.15rem;
+
+.silver {
+    user-select: none;
+    display: inline-block;
+    border-radius: 100%;
+    background-color: $silverOuter;
+    font-weight: bold;
+    width: $silverDiameter;
+    height: $silverDiameter;
+    padding: $silverPadding;
+    .silver-coin {
+        $innerDiameter: calc($silverDiameter - (2*$silverPadding));
+        color: $silverInner;
+        border: 0.20rem solid $silverInner;
+        width: $innerDiameter;
+        height: $innerDiameter;
+        border-radius: 100%;
+        text-align: center;
+        padding-top: 0.09rem;
+        line-height: calc($silverDiameter / 2);
+    }
 }

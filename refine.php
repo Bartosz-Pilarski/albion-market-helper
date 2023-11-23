@@ -43,7 +43,7 @@
             <div class="divider-horizontal"></div>
             <div class="refining-calculator">
                 <div class="refining-header">
-                    <div class="silver hidden"> 1 </div>
+                    <div class="silver"> <div class="silver-coin">1</div> </div>
                     <h1>Refining calculator:</h1>
                 </div>
             </div>
