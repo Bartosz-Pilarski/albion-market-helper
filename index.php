@@ -26,7 +26,7 @@
             </p>
             <div class="divider-horizontal"></div>
             <p>
-                This project is open source!
+                This project is <a href="https://github.com/Bartosz-Pilarski/albion-market-helper" target="_blank">open source</a>!
             </p>
             <div id="footer"> &copy;2023, Bartosz Pilarski</div>
         </div>
