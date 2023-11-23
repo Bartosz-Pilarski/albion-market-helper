@@ -5,6 +5,15 @@ main {
     flex-direction: column;
 }
 
+input {
+    background-color: $albionBlack;
+    border: 2px solid rgba($albionRed, 0.8);
+    color: $albionWhite;
+    font-weight: bold;
+    padding: 0.25rem;
+    text-align: center;
+}
+
 #tabs {
     display: flex;
     flex-direction: row;
@@ -209,13 +218,7 @@ main {
                 }
                 .station-cost {
                     input {
-                        background-color: $albionBlack;
-                        border: 2px solid rgba($albionRed, 0.8);
-                        color: $albionWhite;
-                        font-weight: bold;
-                        padding: 0.25rem;
                         width: 4rem;
-                        text-align: center;
                     }
                 }
             }

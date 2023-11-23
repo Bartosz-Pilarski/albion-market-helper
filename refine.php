@@ -43,8 +43,15 @@
             <div class="divider-horizontal"></div>
             <div class="refining-calculator">
                 <div class="refining-header">
-                    <div class="silver"> <div class="silver-coin">1</div> </div>
+                    <div class="silver"> <div class="silver-coin">1</div>  </div>
                     <h1>Refining calculator:</h1>
+                    <div id="raw-input">
+                        Enter desired raw input: <input type="number" name="rawInput" id="rawInput">
+                    </div>
+                    <div id="log"></div> <div id="out"></div>
+                    <div id="refined-output">
+                        Or enter desired refined output: <input type="number" name="refinedOutput" id="refinedOutput">
+                    </div>
                 </div>
             </div>
         </main>
