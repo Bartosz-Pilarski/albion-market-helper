@@ -32,7 +32,8 @@ for (let index = 0; index < tabButtons.length; index++) {
             ingredients.push([reagents[index].querySelector(".lowest").innerText]);
             ingredients[index].push(reagents[index].querySelector(".reagent-amount").querySelector("h1").innerText.substring(1));
         }
-        refiningNutritionCost = nowActive.querySelector(".crafting-cost").innerText*1;
+        console.log(nowActive.querySelector(".crafting-cost"));
+        if(nowActive.querySelector(".crafting-cost")) refiningNutritionCost = nowActive.querySelector(".crafting-cost").innerText*1;
         calculateRefiningFromRaw(rawInputBox.value);
         nowActive.classList.remove("hidden");
     })
@@ -61,11 +62,19 @@ function calculateRefiningFromRaw(amount) {
     let output = "";
     logBox.innerText = "";
     
-    let reagentPerUnit = ingredients[1][1]/ingredients[0][1];
-    let roundedReagentsNeeded = Math.floor(amount*reagentPerUnit);
+    let reagentPerUnit,roundedReagentsNeeded,reagentCost;
+
+    if(ingredients[1]) {
+        reagentPerUnit = ingredients[1][1]/ingredients[0][1];
+        roundedReagentsNeeded = Math.floor(amount*reagentPerUnit);
+        reagentCost = ingredients[1][0]*roundedReagentsNeeded;
+    } else {
+        reagentPerUnit = 0;
+        roundedReagentsNeeded = 0;
+        reagentCost = 0;
+    }
 
     let rawCost = ingredients[0][0]*amount;
-    let reagentCost = ingredients[1][0]*roundedReagentsNeeded;
 
     let craftingOutput = Math.floor(amount/ingredients[0][1]);
     let craftingNutritionCost = refiningNutritionCost*craftingOutput;
@@ -74,7 +83,7 @@ function calculateRefiningFromRaw(amount) {
     refinedOutputBox.value = craftingOutput;
     
     output += `Raw: ${ingredients[0][0]}x${amount} `;
-    if(typeof ingredients[1] !== undefined) {
+    if(ingredients[1]) {
         output += `Reagent: ${ingredients[1][0]}x${roundedReagentsNeeded} `;
     }
     output += `Station nutrition cost: ${craftingNutritionCost} `;
@@ -89,21 +98,28 @@ function calculateRefiningFromRefined(amount) {
     let output = "";
     logBox.innerText = "";
     
-    let roundedReagentsNeeded = amount*ingredients[1][1];
-    let roundedRawNeeded = amount*ingredients[0][1];
+    let reagentsNeeded,reagentCost;
 
-    let rawCost = roundedRawNeeded*ingredients[0][0];
-    let reagentCost = roundedReagentsNeeded*ingredients[1][0];
+    if(ingredients[1]) {
+        reagentsNeeded = ingredients[1][1]*amount;
+        reagentCost = ingredients[1][0]*reagentsNeeded;
+    } else {
+        reagentsNeeded = 0;
+        reagentCost = 0;
+    }
 
-    let craftingOutput = amount
+    let rawNeeded = ingredients[0][1]*amount;
+    let rawCost = ingredients[0][0]*rawNeeded;
+
+    let craftingOutput = amount;
     let craftingNutritionCost = refiningNutritionCost*craftingOutput;
 
     let totalCost = rawCost+reagentCost+craftingNutritionCost;
-    rawInputBox.value = roundedRawNeeded;
+    rawInputBox.value = rawNeeded;
     
-    output += `Raw: ${ingredients[0][0]}x${amount} `;
-    if(typeof ingredients[1] !== undefined) {
-        output += `Reagent: ${ingredients[1][0]}x${roundedReagentsNeeded} `;
+    output += `Raw: ${ingredients[0][0]}x${rawNeeded} `;
+    if(ingredients[1]) {
+        output += `Reagent: ${ingredients[1][0]}x${reagentsNeeded} `;
     }
     output += `Station nutrition cost: ${craftingNutritionCost} `;
     output += `Total initial investment: ${totalCost} `;
